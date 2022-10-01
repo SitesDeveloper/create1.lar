@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\MyPlaceController;
+use App\Http\Controllers\MyTestController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +16,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    //return view('welcome');
+    return 'asdfsadf';
 });
+
+
+Route::get('/bible', [ MyPlaceController::class, 'index'] );

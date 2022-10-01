@@ -1,0 +1,99 @@
+Шаг 1 — Создание структуры директорий
+1) sudo mkdir -p /var/www/create1.lar/proj1/
+
+Шаг 2 — Предоставление разрешений
+sudo chown -R $USER:$USER /var/www/create1.lar/proj1/
+	-- $USER будет принимать значение текущего пользователя
+sudo chmod -R 755 /var/www	
+sudo chmod -R 755 /var/www/create1.lar
+
+
+Шаг 3 — Создание демонстрационных страниц для каждого виртуального хоста
+nano /var/www/create1.lar/proj1/index.html
+	<html>
+	  <head>
+		<title>Welcome to create1.lar!</title>
+	  </head>
+	  <body> <h1>Success! The create1.lar virtual host is working!</h1>
+	  </body>
+	</html>
+	
+Шаг 4 — Создание новых файлов виртуального хоста
+sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/create1.lar.conf	
+sudo nano /etc/apache2/sites-available/create1.lar.conf
+
+<VirtualHost *:80>
+    ServerAdmin admin@create1.lar
+    ServerName create1.lar
+    ServerAlias www.create1.lar
+    DocumentRoot /var/www/create1.lar
+	<Directory /var/www/create1.lar/>
+        Options -Indexes +FollowSymLinks
+        AllowOverride All
+    </Directory>	
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+
+
+Шаг 5 — Активация новых файлов виртуального хоста
+sudo a2ensite create1.lar.conf
+sudo a2dissite 000-default.conf
+
+sudo service apache2 reload
+sudo service apache2 restart
+
+
+Шаг 6 — Настройка локального файла hosts (необязательно)
+sudo nano /etc/hosts
+
+надо добавить  ::1 - без этого ошибка
+
+127.0.0.1 create1.lar	www.create1.lar
+::1 create1.lar	www.create1.lar
+
+также это надо добавить в файл видны host
+
+TODO~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+для файлов после установки лары
+
+find . -type f -exec chmod 644 {} +
+find storage/ -type f -exec chmod 755 {} +
+
+
+//решает проблему с доступом к log-файлам
+sudo chown -R $USER:www-data storage
+sudo chown -R $USER:www-data bootstrap/cache
+и сразу после:
+chmod -R 775 storage
+chmod -R 775 bootstrap/cache
+
+возможно надо: php artisan storage:link
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+НАСТРОЙКА Git 
+git status - сначала error потому что нету
+git init
+git config core.filemode false 
+- отключить отслеживание доступа к файлам +-x 644/755	
+
+git add .
+git commit -m "first commit"
+//эти три команды только один раз, после этого можно просто  git push
+git branch -M main
+git remote add origin https://github.com/SitesDeveloper/create1.lar.git
+git push -u origin main
+
+
+теперь избавиться от vite  в laravel-mix
+https://github.com/laravel/vite-plugin/blob/main/UPGRADE.md#migrating-from-vite-to-laravel-mix
+
+git add .
+git commit -m "after remove vite"
+git push
+
+
+1. MVC паттерн, model, view, controller
+2. Первый route в laravel(маршрут)
+3. Первый controller в laravel
