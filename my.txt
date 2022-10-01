@@ -97,4 +97,10 @@ git push
 1. MVC паттерн, model, view, controller
 2. Первый route в laravel(маршрут)
 3. Первый controller в laravel
-4. Первая миграция в laravel(таблица)
+4. Первая model + миграция в laravel
+  php artisan make:model TestModel -m
+  php artisan migrate
+  php artisan migrate:rollback
+5. Модель в Laravel. Общий обзор  
+6. Модель. Метод чтения данных из базы (READ)
+7. Модель. Реализация методов у модели

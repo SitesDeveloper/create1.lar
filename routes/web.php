@@ -1,8 +1,7 @@
 <?php
 
-use App\Http\Controllers\MyPlaceController;
-use App\Http\Controllers\MyTestController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,4 +20,4 @@ Route::get('/', function () {
 });
 
 
-Route::get('/bible', [ MyPlaceController::class, 'index'] );
+Route::get('/posts', [ PostController::class, 'index'] );
