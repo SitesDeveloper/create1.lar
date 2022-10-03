@@ -112,3 +112,19 @@ git push
     //firstOrCreate
     //updateOrCreate
 13. Миграции. Редактирование миграций    
+    php artisan make:migration add_column_description_to_posts_table
+    php artisan migrate
+    php artisan make:migration delete_column_description_to_posts_table
+    php artisan migrate   //проверка
+    php artisan migrate:rollback
+    php artisan migrate
+    php artisan make:migration edit_column_content_to_posts_table
+
+    #setup doctrine/dbal  for rename columns  
+    composer require doctrine/dbal    
+    php artisan migrate
+    php artisan make:migration change_column_post_content_to_string_to_posts_table
+    php artisan migrate
+    php artisan make:migration drop_table_posts
+    php artisan migrate
+ 14. View 
