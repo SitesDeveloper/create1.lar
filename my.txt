@@ -129,3 +129,9 @@ git push
     php artisan migrate
 14. View 
 15. View часть 2
+16. Bootstrap в laravel 
+    #подключение bootstrap
+    composer require laravel/ui
+    php artisan ui bootstrap
+    npm install && npm run dev
+    #npm run watch
