@@ -127,4 +127,5 @@ git push
     php artisan migrate
     php artisan make:migration drop_table_posts
     php artisan migrate
- 14. View 
+14. View 
+15. View часть 2
