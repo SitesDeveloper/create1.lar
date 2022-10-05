@@ -145,3 +145,6 @@ git push
   php artisan make:model PostTag -m
   php artisan migrate
 20. CRUD через интерфейс - модифицируем интерфейс  
+21. CRUD через интерфейс - модифицируем интерфейс часть 2 (attach)
+22. CRUD через интерфейс - модифицируем интерфейс часть 3 (sync)
+23. CRUD через интерфейс - модифицируем интерфейс часть 4 (show errors)
