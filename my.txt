@@ -135,3 +135,13 @@ git push
     php artisan ui bootstrap
     npm install && npm run dev
     #npm run watch
+
+17. CRUD через интерфейс. Имена роутов, контроллеров по конвенции Laravel
+18. Отношения один ко многим
+  php artisan make:model Category -m
+  #change migration name (category first before post)
+19. Отношения многие ко многим  
+  php artisan make:model Tag -m
+  php artisan make:model PostTag -m
+  php artisan migrate
+20. CRUD через интерфейс - модифицируем интерфейс  
