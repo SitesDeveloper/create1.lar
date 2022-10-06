@@ -130,11 +130,11 @@ git push
 14. View 
 15. View часть 2
 16. Bootstrap в laravel 
-    #подключение bootstrap
+    #подключение bootstrap      
     composer require laravel/ui
     php artisan ui bootstrap
     npm install && npm run dev
-    #npm run watch
+    #npm run watch  
 
 17. CRUD через интерфейс. Имена роутов, контроллеров по конвенции Laravel
 18. Отношения один ко многим
@@ -148,3 +148,5 @@ git push
 21. CRUD через интерфейс - модифицируем интерфейс часть 2 (attach)
 22. CRUD через интерфейс - модифицируем интерфейс часть 3 (sync)
 23. CRUD через интерфейс - модифицируем интерфейс часть 4 (show errors)
+24. Отношения один ко многим и многие ко многим через конвенцию Laravel 
+25. Однометодные контроллеры

@@ -1,10 +1,21 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactsController;
+
+// use App\Http\Controllers\Post\EditController;
+// use App\Http\Controllers\Post\ShowController;
+// use App\Http\Controllers\Post\IndexController;
+// use App\Http\Controllers\Post\StoreController;
+// use App\Http\Controllers\Post\CreateController;
+// use App\Http\Controllers\Post\UpdateController;
+// use App\Http\Controllers\Post\DestroyController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -23,14 +34,33 @@ Route::get('/', function () {
 });
 
 
-Route::get('/posts', [ PostController::class, 'index'] )->name('post.index');
+// 'namespace'=>'App\HTTP\Controllers\Post'
 
-Route::get('/posts/create', [PostController::class, 'create'])->name('post.create');
-Route::post('/posts', [PostController::class, 'store'])->name('post.store');
-Route::get('/posts/{post}', [PostController::class, 'show'])->name('post.show');
-Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('post.edit');
-Route::patch('/posts/{post}', [PostController::class, 'update'])->name('post.update');
-Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('post.destroy');
+// Route::group([], function(){
+
+//     Route::get('/posts', IndexController::class )->name('post.index');
+//     Route::get('/posts/create', CreateController::class)->name('post.create');
+//     Route::post('/posts', StoreController::class)->name('post.store');
+//     Route::get('/posts/{post}', ShowController::class)->name('post.show');
+//     Route::get('/posts/{post}/edit', EditController::class)->name('post.edit');
+//     Route::patch('/posts/{post}', UpdateController::class)->name('post.update');
+//     Route::delete('/posts/{post}', DestroyController::class)->name('post.destroy');
+
+// });
+
+
+Route::group(['namespace'=>'App\Http\Controllers\Post'], function(){
+
+    Route::get('/posts', 'IndexController' )->name('post.index');
+    Route::get('/posts/create', 'CreateController')->name('post.create');
+    Route::post('/posts', 'StoreController')->name('post.store');
+    Route::get('/posts/{post}', 'ShowController')->name('post.show');
+    Route::get('/posts/{post}/edit', 'EditController')->name('post.edit');
+    Route::patch('/posts/{post}', 'UpdateController')->name('post.update');
+    Route::delete('/posts/{post}', 'DestroyController')->name('post.destroy');
+
+});
+
 
 
 
