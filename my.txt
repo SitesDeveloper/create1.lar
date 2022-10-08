@@ -152,3 +152,9 @@ git push
 25. Однометодные контроллеры
 26. Класс Request в Laravel
 27. Класс Service в Laravel
+28. Классы Factory и Seed в Laravel
+  php artisan migrate --seed
+
+  php artisan make:factory PostFactory -m=Post
+  php artisan make:factory CategoryFactory
+  php artisan make:factory TagFactory
