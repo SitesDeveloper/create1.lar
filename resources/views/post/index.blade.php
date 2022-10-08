@@ -10,7 +10,9 @@
                 @method("delete")
                 <input type="submit" class="btn btn-warning" value ="Delete">
             </form>
-            
         </div>
     @endforeach
+    <div class="mb-3">
+        {{ $posts->links() }}
+    </div>
 @endsection
