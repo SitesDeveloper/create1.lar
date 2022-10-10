@@ -160,3 +160,5 @@ git push
   php artisan migrate --fresh --seed
 
 29. Пагинация в Laravel
+  php artisan vendor:publish --tag=laravel-pagination
+30. Шаблон Filter, фильтрация данных в Laravel  

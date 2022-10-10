@@ -13,6 +13,6 @@
         </div>
     @endforeach
     <div class="mb-3">
-        {{ $posts->links() }}
+        {{ $posts->withQueryString()->links() }}
     </div>
 @endsection
