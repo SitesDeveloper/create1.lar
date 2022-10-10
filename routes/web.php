@@ -60,6 +60,11 @@ Route::group(['namespace'=>'App\Http\Controllers\Post'], function(){
 });
 
 
+Route::group(['namespace'=>'App\Http\Controllers\Admin', 'prefix'=>'admin'], function(){
+    Route::group(['namespace'=>'Post'], function(){
+        Route::get('/post', 'IndexController' )->name('admin.post.index');
+    });
+});
 
 
 Route::get('/posts/delete', [PostController::class, 'delete']);

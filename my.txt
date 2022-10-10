@@ -161,4 +161,5 @@ git push
 
 29. Пагинация в Laravel
   php artisan vendor:publish --tag=laravel-pagination
-30. Шаблон Filter, фильтрация данных в Laravel  
+30. Шаблон Filter, фильтрация данных в Laravel   //можн еще раз посмотреть для закрепления
+31. Admin LTE в Laravel, устанавливаем админку
