@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Post;
+namespace App\Http\Controllers\Admin\Post;
 
 use App\Models\Post;
-use App\Http\Requests\Post\StoreRequest;
+use App\Http\Requests\Admin\Post\StoreRequest;
 use App\Http\Controllers\BaseController;
 
 class StoreController extends BaseController
@@ -12,6 +12,6 @@ class StoreController extends BaseController
     {
         $data = $request->validated();
         $this->service->store($data);
-        return redirect()->route('post.index');
+        return redirect()->route('admin.post.index');
     }
 }

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Post;
 use App\Models\Post;
 use App\Http\Filters\PostFilter;
 use App\Http\Requests\Post\FilterRequest;
-use App\Http\Controllers\Post\BaseController;
+use App\Http\Controllers\BaseController;
 
 class IndexController extends BaseController
 {
