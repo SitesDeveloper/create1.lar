@@ -17,7 +17,7 @@ class AdminPanelMiddleware
     public function handle(Request $request, Closure $next)
     {
         //dd(auth()->user()->role);
-        if (auth()->user()!=null  && auth()->user()->role == 'admin')
+        if (auth()->user()!=null && auth()->user()->role == 'admin')
             return $next($request);
 
         return redirect()->route('home');

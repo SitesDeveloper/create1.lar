@@ -168,3 +168,5 @@ git push
 33. Класс Middleware в Laravel  (доступ в админку для админов)
   php artisan make:migration add_column_role_to_users_table   
   php artisan make:middleware AdminPanalMiddleware
+34. Класс Policy в Laravel (скрытие ссылок в админку от неадминов)
+  php artisan make:policy  AdminPolicy -m User
