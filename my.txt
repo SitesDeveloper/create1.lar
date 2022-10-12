@@ -163,3 +163,8 @@ git push
   php artisan vendor:publish --tag=laravel-pagination
 30. Шаблон Filter, фильтрация данных в Laravel   //можн еще раз посмотреть для закрепления
 31. Admin LTE в Laravel, устанавливаем админку
+32. Авторизация Laravel
+  user:  SergRom12@yandex.ru  / qwer1234
+33. Класс Middleware в Laravel  (доступ в админку для админов)
+  php artisan make:migration add_column_role_to_users_table   
+  php artisan make:middleware AdminPanalMiddleware

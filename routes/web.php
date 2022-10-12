@@ -28,11 +28,7 @@ use App\Http\Controllers\ContactsController;
 |
 */
 
-Route::get('/', function () {
-    //return view('welcome');
-    return 'asdfsadf';
-});
-
+Route::get('/', [HomeController::class, 'index'])->name('main.index');
 
 // 'namespace'=>'App\HTTP\Controllers\Post'
 
@@ -60,7 +56,11 @@ Route::group(['namespace'=>'App\Http\Controllers\Post'], function(){
 });
 
 
-Route::group(['namespace'=>'App\Http\Controllers\Admin', 'prefix'=>'admin'], function(){
+Route::group(['namespace'=>'App\Http\Controllers\Admin', 
+                'prefix'=>'admin',
+                'middleware' => 'admin'
+            ], 
+                function(){
     Route::group(['namespace'=>'Post'], function(){
         Route::get('/posts', 'IndexController' )->name('admin.post.index');
         Route::get('/posts/create', 'CreateController')->name('admin.post.create');
@@ -81,5 +81,5 @@ Route::get('/main', [MainController::class, 'index'])->name('main.index');
 Route::get('/contacts', [ContactsController::class, 'index'])->name('contacts.index');
 Route::get('/about', [AboutController::class, 'index'])->name('about.index');
 
-//Auth::routes();
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Auth::routes();
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
