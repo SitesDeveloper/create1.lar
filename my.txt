@@ -168,5 +168,7 @@ git push
 33. Класс Middleware в Laravel  (доступ в админку для админов)
   php artisan make:migration add_column_role_to_users_table   
   php artisan make:middleware AdminPanalMiddleware
-34. Класс Policy в Laravel (скрытие ссылок в админку от неадминов)
+34. Класс Policy в Laravel  демонстпрация и скрытие доступа (ссылки, контент, функции и т.д)
   php artisan make:policy  AdminPolicy -m User
+35. Асинхронный CRUD в Laravel. Приложение Postman.  
+36. Класс Resource в Laravel, асинхронный ответ с бека. Restful API
