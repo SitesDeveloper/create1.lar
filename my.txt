@@ -172,3 +172,10 @@ git push
   php artisan make:policy  AdminPolicy -m User
 35. Асинхронный CRUD в Laravel. Приложение Postman.  
 36. Класс Resource в Laravel, асинхронный ответ с бека. Restful API
+  php artisan make:resource Post/PostResource
+37. JWT Token в Laravel
+  composer require tymon/jwt-auth
+  #или composer require -w tymon/jwt-auth --ignore-platform-reqs
+  php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"
+  php artisan jwt:secret
+  php artisan make:controller AuthController
