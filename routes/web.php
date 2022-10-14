@@ -1,12 +1,12 @@
 <?php
 
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ContactsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\PostController;
-use App\Http\Controllers\AboutController;
-use App\Http\Controllers\ContactsController;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 // use App\Http\Controllers\Post\EditController;
 // use App\Http\Controllers\Post\ShowController;
@@ -15,7 +15,6 @@ use App\Http\Controllers\ContactsController;
 // use App\Http\Controllers\Post\CreateController;
 // use App\Http\Controllers\Post\UpdateController;
 // use App\Http\Controllers\Post\DestroyController;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +25,7 @@ use App\Http\Controllers\ContactsController;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
 Route::get('/', [HomeController::class, 'index'])->name('main.index');
 
@@ -44,9 +43,8 @@ Route::get('/', [HomeController::class, 'index'])->name('main.index');
 
 // });
 
-
-Route::group(['namespace'=>'App\Http\Controllers\Post'], function(){
-    Route::get('/posts', 'IndexController' )->name('post.index');
+Route::group(['namespace' => 'App\Http\Controllers\Post'], function () {
+    Route::get('/posts', 'IndexController')->name('post.index');
     Route::get('/posts/create', 'CreateController')->name('post.create');
     Route::post('/posts', 'StoreController')->name('post.store');
     Route::get('/posts/{post}', 'ShowController')->name('post.show');
@@ -55,23 +53,21 @@ Route::group(['namespace'=>'App\Http\Controllers\Post'], function(){
     Route::delete('/posts/{post}', 'DestroyController')->name('post.destroy');
 });
 
-
-Route::group(['namespace'=>'App\Http\Controllers\Admin', 
-                'prefix'=>'admin',
-                'middleware' => 'admin'
-            ], 
-                function(){
-    Route::group(['namespace'=>'Post'], function(){
-        Route::get('/posts', 'IndexController' )->name('admin.post.index');
-        Route::get('/posts/create', 'CreateController')->name('admin.post.create');
-        Route::post('/posts', 'StoreController')->name('admin.post.store');
-        Route::get('/posts/{post}', 'ShowController')->name('admin.post.show');
-        Route::get('/posts/{post}/edit', 'EditController')->name('admin.post.edit');
-        Route::patch('/posts/{post}', 'UpdateController')->name('admin.post.update');
-        Route::delete('/posts/{post}', 'DestroyController')->name('admin.post.destroy');
-    });
+Route::group(['namespace' => 'App\Http\Controllers\Admin',
+        'prefix' => 'admin',
+        'middleware' => 'admin',
+    ],
+    function () {
+        Route::group(['namespace' => 'Post'], function () {
+            Route::get('/posts', 'IndexController')->name('admin.post.index');
+            Route::get('/posts/create', 'CreateController')->name('admin.post.create');
+            Route::post('/posts', 'StoreController')->name('admin.post.store');
+            Route::get('/posts/{post}', 'ShowController')->name('admin.post.show');
+            Route::get('/posts/{post}/edit', 'EditController')->name('admin.post.edit');
+            Route::patch('/posts/{post}', 'UpdateController')->name('admin.post.update');
+            Route::delete('/posts/{post}', 'DestroyController')->name('admin.post.destroy');
+        });
 });
-
 
 Route::get('/posts/delete', [PostController::class, 'delete']);
 Route::get('/posts/first_or_create', [PostController::class, 'firstOrCreate']);
