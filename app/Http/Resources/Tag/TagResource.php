@@ -1,12 +1,10 @@
 <?php
 
-namespace App\Http\Resources\Post;
+namespace App\Http\Resources\Tag;
 
-use App\Http\Resources\Category\CategoryResource;
-use App\Http\Resources\Tag\TagResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class PostResource extends JsonResource
+class TagResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,13 +14,9 @@ class PostResource extends JsonResource
      */
     public function toArray($request)
     {
-        return [
+        return  [
             'id' => $this->id,
             'title' => $this->title,
-            'content' => $this->content,
-            'image' => $this->image,
-            'category' => new CategoryResource($this->category),
-            'tags' => TagResource::collection( $this->tags )
         ];
     }
 }

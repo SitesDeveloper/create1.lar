@@ -34,6 +34,11 @@ Route::group([
     'namespace' => 'App\Http\Controllers\Post',
     'middleware' => 'jwt.auth',
 ], function() {
-    Route::post('/posts', 'IndexController');
-
+    Route::get('/posts', 'IndexController')->name('api.post.index');
+    Route::get('/posts/create', 'CreateController')->name('api.post.create');
+    Route::post('/posts', 'StoreController')->name('api.post.store');
+    Route::get('/posts/{post}', 'ShowController')->name('api.post.show');
+    Route::get('/posts/{post}/edit', 'EditController')->name('api.post.edit');
+    Route::patch('/posts/{post}', 'UpdateController')->name('api.post.update');
+    Route::delete('/posts/{post}', 'DestroyController')->name('api.post.destroy');
 });

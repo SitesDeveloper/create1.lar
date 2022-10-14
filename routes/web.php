@@ -79,3 +79,4 @@ Route::get('/about', [AboutController::class, 'index'])->name('about.index');
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
