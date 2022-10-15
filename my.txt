@@ -181,6 +181,7 @@ git push
   php artisan make:controller AuthController
 
 38. CRUD с транзакцией в Laravel.  
-
   php artisan make:resource Category/CategoryResource
   php artisan make:resource Tag/TagResource
+
+39. Класс HTTP Guzzle в Laravel. Интеграция со сторонними сервисами
