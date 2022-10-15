@@ -185,3 +185,5 @@ git push
   php artisan make:resource Tag/TagResource
 
 39. Класс HTTP Guzzle в Laravel. Интеграция со сторонними сервисами
+  php artisan make:command ImportJsonPlaceHolderCommand
+40. Класс Excel в Laravel. Laravel Excel библиотека для Laravel
